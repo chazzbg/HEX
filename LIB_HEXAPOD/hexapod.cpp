@@ -1,7 +1,7 @@
 #include "hexapod.h"
 
 void hexapod::step (float dt)
-{
+{ 
 	int ii, modt;
 	float absspeed, speedsgn, ssfrac, ssfrac2;
 	float cycletime, xpos, ypos, zpos, target[3];
@@ -215,16 +215,16 @@ hexapod::hexapod(bool debugflag)
 	femurangle = 12.3*DEGTORAD; // old: 11.5, 9.53
 	tibiaangle = 40.0*DEGTORAD; // old_47.3, 45.0
 
-	anglelb[0] = 75.0*DEGTORAD;
-	angleub[0] = 245.*DEGTORAD;
-	anglelb[1] = 55.0*DEGTORAD;
-	angleub[1] = 250.*DEGTORAD;
-	anglelb[2] = 40.0*DEGTORAD;
-	angleub[2] = 215.*DEGTORAD;
+	anglelb[0] = 1.0*DEGTORAD;
+	angleub[0] = 180.*DEGTORAD;
+	anglelb[1] = 1.0*DEGTORAD;
+	angleub[1] = 180.*DEGTORAD;
+	anglelb[2] = 1.0*DEGTORAD;
+	angleub[2] = 180.*DEGTORAD;
 	for (ii=0; ii<3; ii++)
 	{
-		anglelb[ii] -= 150.*DEGTORAD; // because servos are straight at 150 degrees
-		angleub[ii] -= 150.*DEGTORAD;
+		anglelb[ii] -= 90.*DEGTORAD; // because servos are straight at 150 degrees
+		angleub[ii] -= 90.*DEGTORAD;
 		//anglelb[ii] *= 0.75;
 		//angleub[ii] *= 0.75;
 	}

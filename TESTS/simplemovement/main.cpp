@@ -30,7 +30,7 @@ int main(void)
 	
 	int dsize, psize;
 	double time, lasttime, dt, lastdata, inittime;
-	
+	bool cont, quit;
 
 	
 	inittime = getTime();
@@ -80,6 +80,33 @@ int main(void)
 
 	}
 	
+	cout << "walking.." << endl;
 
-	cout << "Quitting.." << endl;
+	lasttime = getTime();
+	lastdata = lasttime;
+	usleep(20*1000);
+
+	hex.speed = 4.0;
+	
+	quit = false;
+	while (!quit)
+	{
+		dt = (getTime() - lasttime);
+		time += dt;
+		lasttime = getTime();
+		hex.step(dt);
+		
+		
+		cout<<"Hexapod{servoAngle=[";
+		for (ii=0; ii<18; ii++)
+		{
+		 	cout<< hex.servoangle[ii]<<",";
+		}
+
+		cout<<"]}\n";
+usleep(20*1000);
+	}
+		
+		
+	
 }
